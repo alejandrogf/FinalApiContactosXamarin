@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RedContactos09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="RedSocial09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contacto">
           <Key>
             <PropertyRef Name="idUsuario" />
             <PropertyRef Name="idAmigo" />
           </Key>
-          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
           <Property Name="idAmigo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Mensaje">
@@ -84,7 +84,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RedContactos09ModelStoreContainer">
+        <EntityContainer Name="RedSocial09ModelStoreContainer">
           <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mensaje" EntityType="Self.Mensaje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -109,7 +109,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RedContactos09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="RedSocial09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Mensaje">
           <Key>
             <PropertyRef Name="id" />
@@ -137,7 +137,7 @@
           <NavigationProperty Name="Enviados" Relationship="Self.FK_Mensaje_Usuario" FromRole="Usuario" ToRole="Mensaje" />
           <NavigationProperty Name="Recibidos" Relationship="Self.FK_Mensaje_Usuario1" FromRole="Usuario" ToRole="Mensaje" />
           <NavigationProperty Name="Amigo" Relationship="Self.Contacto" FromRole="Usuario" ToRole="Usuario1" />
-          <NavigationProperty Name="Usuario1" Relationship="Self.Contacto" FromRole="Usuario1" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario2" Relationship="Self.Contacto" FromRole="Usuario1" ToRole="Usuario" />
         </EntityType>
         <Association Name="FK_Mensaje_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
@@ -167,7 +167,7 @@
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
           <End Role="Usuario1" Type="Self.Usuario" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="RedContactos09Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RedSocial09Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Mensaje" EntityType="Self.Mensaje" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_Mensaje_Usuario" Association="Self.FK_Mensaje_Usuario">
@@ -188,9 +188,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RedContactos09ModelStoreContainer" CdmEntityContainer="RedContactos09Entities">
+        <EntityContainerMapping StorageEntityContainer="RedSocial09ModelStoreContainer" CdmEntityContainer="RedSocial09Entities">
           <EntitySetMapping Name="Mensaje">
-            <EntityTypeMapping TypeName="RedContactos09Model.Mensaje">
+            <EntityTypeMapping TypeName="RedSocial09Model.Mensaje">
               <MappingFragment StoreEntitySet="Mensaje">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOrigen" ColumnName="idOrigen" />
@@ -203,7 +203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="RedContactos09Model.Usuario">
+            <EntityTypeMapping TypeName="RedSocial09Model.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
@@ -214,7 +214,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Contacto" TypeName="RedContactos09Model.Contacto" StoreEntitySet="Contacto">
+          <AssociationSetMapping Name="Contacto" TypeName="RedSocial09Model.Contacto" StoreEntitySet="Contacto">
             <EndProperty Name="Usuario">
               <ScalarProperty Name="id" ColumnName="idUsuario" />
             </EndProperty>

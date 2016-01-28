@@ -13,10 +13,10 @@ namespace ApiContactos.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RedContactos09Entities : DbContext
+    public partial class RedSocial09Entities : DbContext
     {
-        public RedContactos09Entities()
-            : base("name=RedContactos09Entities")
+        public RedSocial09Entities()
+            : base("name=RedSocial09Entities")
         {
         }
     

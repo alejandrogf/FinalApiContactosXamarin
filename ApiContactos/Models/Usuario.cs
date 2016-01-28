@@ -20,7 +20,7 @@ namespace ApiContactos.Models
             this.Enviados = new HashSet<Mensaje>();
             this.Recibidos = new HashSet<Mensaje>();
             this.Amigo = new HashSet<Usuario>();
-            this.Usuario1 = new HashSet<Usuario>();
+            this.Usuario2 = new HashSet<Usuario>();
         }
     
         public int id { get; set; }
@@ -37,6 +37,6 @@ namespace ApiContactos.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Amigo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuario1 { get; set; }
+        public virtual ICollection<Usuario> Usuario2 { get; set; }
     }
 }

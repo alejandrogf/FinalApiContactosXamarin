@@ -18,7 +18,7 @@ namespace ApiContactos
             
             // e.g. container.RegisterType<ITestService, TestService>();
 
-            container.RegisterType<DbContext, RedContactos09Entities>();
+            container.RegisterType<DbContext, RedSocial09Entities>();
             container.RegisterType<UsuarioRepositorio>();
             container.RegisterType<MensajeRepositorio>();
             container.RegisterType<ContactoRepositorio>();
