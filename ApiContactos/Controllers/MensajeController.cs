@@ -19,7 +19,7 @@ namespace ApiContactos.Controllers
 
         public ICollection<MensajeModel> Get(int id)
         {
-            return MensajeRepositorio.GetByDestiny(id);
+            return MensajeRepositorio.GetByDestino(id);
         }
 
         public ICollection<MensajeModel> Get(int id, bool enviado)

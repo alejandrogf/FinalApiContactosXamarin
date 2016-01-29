@@ -20,7 +20,7 @@ namespace ApiContactos.Repositorios
         }
 
         //Obtener todos los mensajes enviados
-        public ICollection<MensajeModel> GetByDestiny(int idDestino)
+        public ICollection<MensajeModel> GetByDestino(int idDestino)
         {
             var data = Get(o => o.idDestino == idDestino).OrderByDescending(o=>o.Fecha);
             return data.ToList();
